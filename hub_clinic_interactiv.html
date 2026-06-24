@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghid Interactiv de Autoevaluare Psihologică | Psiholog Clinician Turcu Ioan-Alexandru </title>
+    <!-- Tailwind CSS CDN pentru design minimalist, aerisit și modern -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-blue-50/40 text-slate-800 min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-10">
+
+    <!-- CONTAINER CENTRAL -->
+    <div class="max-w-3xl w-full bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 p-6 sm:p-8 md:p-10 relative overflow-hidden transition-all duration-300">
+        
+        <!-- BRANDING CABINET HEADER -->
+        <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+            <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 rounded-full bg-blue-600 animate-pulse"></div>
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Cabinet Psihologie Clinică şi Consiliere Psihologică</span>
+            </div>
+            <a href="https://psi-alex-turcu.webnode.ro/servicii/" target="_blank" class="text-xs font-semibold text-blue-600 hover:text-blue-700 transition flex items-center space-x-1">
+                <span>psi-alex-turcu.ro</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+        </div>
+
+        <!-- ================= ECRAN 1: INTRODUCERE & SELECȚIE DOMENIU ================= -->
+        <div id="screen-intro" class="fade-in space-y-6">
+            <div class="space-y-3">
+                <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl leading-tight">
+                    Evaluează-ți starea, găsește claritatea emotională.
+                </h1>                     
+                <p class="text-slate-500 text-sm sm:text-base leading-relaxed">
+                    Alege una dintre ariile de evaluare de mai jos pentru a începe un test ghidat de protocoale clinice. La final, vei primi o sinteză psihoeducațională personalizată și recomandări practice pentru cabinet.
+                </p>
+            </div>
+
+            <!-- DISCLAIMER CLINIC -->
+            <div class="p-4 bg-amber-50/60 border-l-4 border-amber-500 rounded-r-xl">
+                <div class="flex space-x-3">
+                    <svg class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <p class="text-xs text-amber-800 leading-relaxed font-medium">
+                        <strong>Confidențialitate garantată:</strong> Răspunsurile tale sunt anonime și nu sunt stocate pe server. Această evaluare are scop psihoeducațional și nu înlocuiește un diagnostic clinic formal.
+                    </p>
+                </div>
+            </div>
+
+            <!-- GRILA DE SELECȚIE A DOMENIILOR -->
+            <div class="space-y-3">
+                <p class="text-xs font-bold uppercase tracking-wider text-slate-400">Alege aria pe care dorești să o explorezi astăzi:</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <!-- DOMENIUL 1 -->
+                    <button onclick="startDomeniu('anxietate_stres')" class="group text-left p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/20 hover:border-blue-300 transition duration-150 flex flex-col justify-between focus:outline-none">
+                        <span class="text-blue-600 text-xs font-bold uppercase tracking-wider mb-2 block">01 · Anxietate și Stres</span>
+                        <h3 class="font-bold text-slate-950 text-sm sm:text-base">Managementul Anxietății</h3>
+                        <p class="text-xs text-slate-500 mt-1">Hipervigilență, reacțiune la stres, tensiune somatică și managementul furiei.</p>
+                    </button>
+
+                    <!-- DOMENIUL 2 -->
+                    <button onclick="startDomeniu('depresie_tulburari')" class="group text-left p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-indigo-50/20 hover:border-indigo-300 transition duration-150 flex flex-col justify-between focus:outline-none">
+                        <span class="text-indigo-600 text-xs font-bold uppercase tracking-wider mb-2 block">02 · Tulburări Emoționale</span>
+                        <h3 class="font-bold text-slate-950 text-sm sm:text-base">Tristețe profundă și Depresie</h3>
+                        <p class="text-xs text-slate-500 mt-1">Evaluarea stării de apatie, anhedonie și reglarea funcțională a dispoziției.</p>
+                    </button>
+
+                    <!-- DOMENIUL 3 -->
+                    <button onclick="startDomeniu('fobii_ocd')" class="group text-left p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-emerald-50/20 hover:border-emerald-300 transition duration-150 flex flex-col justify-between focus:outline-none">
+                        <span class="text-emerald-600 text-xs font-bold uppercase tracking-wider mb-2 block">03 · Fobii și OCD</span>
+                        <h3 class="font-bold text-slate-950 text-sm sm:text-base">Fobii și Comportamente OCD</h3>
+                        <p class="text-xs text-slate-500 mt-1">Gânduri intruzive, impulsuri repetitive de control și strategii de evitare.</p>
+                    </button>
+
+                    <!-- DOMENIUL 4 -->
+                    <button onclick="startDomeniu('dezvoltare_stima')" class="group text-left p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-amber-50/20 hover:border-amber-300 transition duration-150 flex flex-col justify-between focus:outline-none">
+                        <span class="text-amber-700 text-xs font-bold uppercase tracking-wider mb-2 block">04 · Dezvoltare Personală</span>
+                        <h3 class="font-bold text-slate-950 text-sm sm:text-base">Stima de Sine și Performanță</h3>
+                        <p class="text-xs text-slate-500 mt-1">Procrastinare, burnout, lipsa încrederii, clarificarea valorilor personale.</p>
+                    </button>
+                </div>
+
+                <!-- DOMENIUL 5 (Full Width pe mobil, integrat) -->
+                <button onclick="startDomeniu('consiliere_relationala')" class="w-full text-left p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-violet-50/20 hover:border-violet-300 transition duration-150 flex flex-col justify-between focus:outline-none">
+                    <span class="text-violet-600 text-xs font-bold uppercase tracking-wider mb-2 block">05 · Consiliere de Specialitate</span>
+                    <h3 class="font-bold text-slate-950 text-sm sm:text-base">Consiliere de Cuplu și Problemele Adolescenților</h3>
+                    <p class="text-xs text-slate-500 mt-1">Dinamica relației de cuplu, tipare de comunicare și provocările specifice vârstei adolescenței.</p>
+                </button>
+            </div>
+        </div>
+
+
+        <!-- ================= ECRAN 2: ÎNTREBĂRI CHESTIONAR DYNAMIC ================= -->
+        <div id="screen-quiz" class="hidden fade-in space-y-6">
+            <!-- Bara de progres și header dinamic -->
+            <div>
+                <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                    <div id="progress-bar" class="bg-blue-600 h-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+                <div class="flex justify-between items-center mt-2">
+                    <p id="progress-text" class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Întrebare</p>
+                    <span id="badge-domain" class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2.5 py-0.5 rounded-md uppercase tracking-wider">Domeniu</span>
+                </div>
+            </div>
+
+            <!-- Întrebarea Curentă -->
+            <h2 id="quiz-question" class="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+                <!-- Text generat prin JS -->
+            </h2>
+            
+            <!-- Container Opțiuni -->
+            <div id="quiz-options" class="space-y-3">
+                <!-- Carduri de răspuns generate prin JS -->
+            </div>
+
+            <!-- Navigare Chestionar -->
+            <div class="flex items-center space-x-3 pt-2">
+                <button onclick="goBackToIntro()" class="px-5 py-3 border border-slate-200 hover:bg-slate-50 text-slate-500 rounded-xl transition font-medium text-sm">
+                    Renunță
+                </button>
+                <button id="btn-next" onclick="nextQuestion()" disabled class="flex-1 bg-slate-100 text-slate-400 font-semibold py-3 rounded-xl transition cursor-not-allowed text-sm text-center">
+                    Continuă
+                </button>
+            </div>
+        </div>
+
+
+        <!-- ================= ECRAN 3: REZULTATE, RECOMANDĂRI CLINICE și CTA ================= -->
+        <div id="screen-results" class="hidden fade-in space-y-6">
+            <div class="text-center space-y-2">
+                <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-sm">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-900">Analiza ta personalizată</h2>
+                <p class="text-sm text-slate-500">Iată perspectivele clinice bazate pe răspunsurile tale:</p>
+            </div>
+
+            <!-- Box Feedback Dinamic -->
+            <div id="result-feedback" class="space-y-4">
+                <!-- Se populează din JS -->
+            </div>
+
+            <!-- Invitație de la Cabinetul Clinicianului -->
+            <div class="border-t border-slate-100 pt-6 space-y-4">
+                <div class="text-center space-y-1.5">
+                    <h3 class="font-bold text-slate-900 text-base">Cauți soluții pe termen lung?</h3>
+                    <p class="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-md mx-auto">
+                        Evaluarea clinică și consilierea în cadrul cabinetului te ajută să deconstruiești aceste tipare și să lucrezi structurat pe baza protocoalelor validate științific.
+                    </p>
+                </div>
+
+                <div class="bg-gradient-to-r from-slate-50 to-blue-50/30 p-5 rounded-2xl border border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="text-center sm:text-left space-y-0.5">
+                        <p class="text-sm font-bold text-slate-900">Psiholog Turcu Ioan-Alexandru</p> 
+                        <p class="text-xs text-slate-400 font-medium">Evaluare Clinică · Consiliere Psihologică · Intervenție Terapeutică</p>
+                        <p class="text-[11px] text-blue-600 font-semibold mt-1 flex items-center justify-center sm:justify-start">
+                            <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+                             In cabinet sau Online
+                        </p>
+                    </div>
+                    <a href="https://wa.me/+40745439837" target="_blank" class="w-full sm:w-auto text-center bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold py-3.5 px-5 rounded-xl transition duration-150 shadow-md shadow-blue-600/15 active:scale-[0.98]">
+                        Programează o ședință
+                    </a>
+                </div>
+
+                <button onclick="resetToHome()" class="text-xs text-slate-400 hover:text-slate-600 transition block mx-auto font-medium py-1">
+                    Înapoi la pagina principală
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- LOGICA JAVASCRIPT A HUB-ULUI CLINIC -->
+    <script>
+        // BAZA DE DATE MULTI-DOMENIU (Scale clinice adaptate)
+        const databaseDomenii = {
+            anxietate_stres: {
+                label: "Anxietate și Stres",
+                questions: [
+                    {
+                        text: "Cât de des te surprinzi tresărind la zgomote bruște, scanând constant mediul sau simțind că ești permanent în gardă (hipervigilență)?",
+                        options: [
+                            { text: "Rar, mă simt destul de relaxat în spațiile familiare.", type: "echilibru" },
+                            { text: "Destul de des, simt o tensiune internă subtilă care mă împiedică să mă relaxez complet.", type: "hipervigilenta" },
+                            { text: "Aproape tot timpul, simt o nevoie incontrolabilă de a monitoriza ce se întâmplă în jurul meu.", type: "hipervigilenta" }
+                        ]
+                    },
+                    {
+                        text: "Cum resimți stresul la nivel fizic în perioadele aglomerate (tensiune somatică)?",
+                        options: [
+                            { text: "Simt o ușoară oboseală normală care trece după un somn bun.", type: "echilibru" },
+                            { text: "Acumulez tensiune musculară (umeri încordați, maxilar strâns) sau am probleme digestive.", type: "somatic" },
+                            { text: "Apar dureri de cap frecvente, palpitații sau dificultăți de respirație (senzație de sufocare).", type: "somatic" }
+                        ]
+                    },
+                    {
+                        text: "Cum se manifestă reacțiile tale în momentele în care lucrurile nu ies așa cum dorești?",
+                        options: [
+                            { text: "Pot deveni iritat, dar îmi recapăt rapid calmul și caut soluții.", type: "echilibru" },
+                            { text: "Simt un val brusc de furie sau revoltă pe care îl controlez cu dificultate.", type: "furie" },
+                            { text: "Mă blochez complet sau am izbucniri puternice pe care ulterior le regret.", type: "furie" }
+                        ]
+                    }
+                ],
+                feedbacks: {
+                    hipervigilenta: {
+                        title: "Sistem de alertă suprasolicitat (Hipervigilență)",
+                        desc: "Răspunsurile tale indică faptul că sistemul tău nervos se află într-o stare de alertă constantă (luptă sau fugi). Creierul tău consumă foarte multă energie încercând să anticipeze potențiale pericole sau riscuri.",
+                        tip: "Recomandare clinică: Reducerea hipervigilenței necesită strategii de recalibrare a sistemului nervos. În terapie lucrăm pe tehnici de ancorare senzorială și exerciții cognitive de de-escaladare a îngrijorărilor."
+                    },
+                    somatic: {
+                        title: "Somatizarea stresului (Tensiune Corporală)",
+                        desc: "Emoțiile și tensiunea neexprimate caută o cale de evacuare prin corp. Contracturile musculare, durerile somatice sau problemele gastrice sunt indicatori că organismul tău funcționează de mult timp peste limita de toleranță.",
+                        tip: "Recomandare clinică: Psihoterapia te ajută să recunoști semnalele timpurii ale corpului tău și să asociezi descărcarea emoțională cu relaxarea musculară progresivă."
+                    },
+                    furie: {
+                        title: "Reactivitate emoțională intensă (Furie / Iritabilitate)",
+                        desc: "Senzația de furie sau iritarea rapidă acționează adesea ca o 'emoție paravan' ce acoperă o stare profundă de neputință, oboseală cronică sau lipsă de control asupra propriei vieți.",
+                        tip: "Recomandare clinică: În cadrul ședințelor analizăm declanșatorii automați ai furiei și dezvoltăm un spațiu de control între stimulul stresant și reacția ta emoțională."
+                    },
+                    echilibru: {
+                        title: "Gestionare funcțională a stresului",
+                        desc: "Felul în care reacționezi la stres indică mecanisme de adaptare solide și o bună reziliență psihologică în fața factorilor perturbatori de zi cu zi.",
+                        tip: "Recomandare clinică: Menține aceste obiceiuri sănătoase. O evaluare periodică te poate ajuta să îți consolidezi rezistența în perioadele de criză majoră."
+                    }
+                }
+            },
+            depresie_tulburari: {
+                label: "Depresie și Tulburări Emoționale",
+                questions: [
+                    {
+                        text: "Cât de multă plăcere sau interes mai simți în realizarea activităților care altădată te bucurau (anhedonie)?",
+                        options: [
+                            { text: "În continuare mă bucur de hobby-urile mele în mod obișnuit.", type: "echilibru" },
+                            { text: "Plăcerea s-a diminuat considerabil; fac lucrurile mai mult din inerție sau obligație.", type: "anhedonie" },
+                            { text: "Nu mai simt absolut nicio bucurie sau motivație pentru nicio activitate.", type: "anhedonie" }
+                        ]
+                    },
+                    {
+                        text: "Cum ai descrie starea ta de spirit generală în ultimele două săptămâni?",
+                        options: [
+                            { text: "Oscilează normal, dar este în general stabilă și optimistă.", type: "echilibru" },
+                            { text: "Predomină tristețea, lipsa de speranță sau o stare de gol interior.", type: "tristete" },
+                            { text: "Mă simt complet amorțit(ă) emoțional, copleșit(ă) de vinovăție sau inutilitate.", type: "tristete" }
+                        ]
+                    },
+                    {
+                        text: "Cum s-au modificat rezervele tale de energie fizică și mentală în ultimul timp?",
+                        options: [
+                            { text: "Am un nivel bun de energie, mă simt capabil(ă) să îmi duc sarcinile la bun sfârșit.", type: "echilibru" },
+                            { text: "Mă simt constant obosit(ă), chiar și fără un efort fizic sau intelectual intens.", type: "apatie" },
+                            { text: "Senzația de epuizare este atât de severă încât îmi este greu să mă dau jos din pat dimineața.", type: "apatie" }
+                        ]
+                    }
+                ],
+                feedbacks: {
+                    anhedonie: {
+                        title: "Dificultăți în accesarea resurselor de plăcere (Anhedonie)",
+                        desc: "Pierderea capacității de a simți plăcere este unul dintre primele semne ale unui dezechilibru afectiv. Când creierul intră într-o stare defensivă, oprește producția de neurotransmițători responsabili de recompensă și entuziasm.",
+                        tip: "Recomandare clinică: Terapia oferă un suport structurat prin activare comportamentală blândă și deconstruirea tiparelor cognitive negative care întrețin anhedonia."
+                    },
+                    tristete: {
+                        title: "Semnale de tristețe clinică și dispoziție deprimată",
+                        desc: "Sentimentul persistent de tristețe, vinovăție sau golul interior reprezintă semnale clare ale unei suferințe emoționale care necesită atenție specializată.",
+                        tip: "Recomandare clinică: Evaluarea clinică te va ajuta să înțelegi rădăcinile acestei stări și să dezvolți strategii de procesare emoțională într-un spațiu securizat și empatic."
+                    },
+                    apatie: {
+                        title: "Stare de apatie severă și deficit de energie",
+                        desc: "Scăderea marcată a energiei nu este o lipsă de voință sau 'lene', ci o reacție fizică și emoțională la suprasolicitarea psihică. Organismul tău a intrat într-o stare de economisire forțată a energiei.",
+                        tip: "Recomandare clinică: Este important să nu forțezi procesul. În cadrul ședințelor, stabilim pași mici de readaptare și reducem presiunea performanței imediate."
+                    },
+                    echilibru: {
+                        title: "Stabilitate emoțională și resurse active",
+                        desc: "Sinteza indică o stare emoțională general stabilă, având acces la resurse de vitalitate și adaptabilitate.",
+                        tip: "Recomandare clinică: Continuă să îți prioritizezi igiena somnului și autoreglarea emoțională pentru a-ți proteja acest echilibru prețios."
+                    }
+                }
+            },
+            fobii_ocd: {
+                label: "Fobii și OCD",
+                questions: [
+                    {
+                        text: "Te confrunți cu gânduri sau imagini repetitive care îți provoacă un disconfort intens și par dificil de controlat (gânduri intruzive)?",
+                        options: [
+                            { text: "Nu, gândurile mele sunt destul de organizate și ușor de gestionat.", type: "echilibru" },
+                            { text: "Da, apar gânduri ciudate sau deranjante care mă fac să mă simt îngrijorat(ă).", type: "intruziv" },
+                            { text: "Da, gândurile apar constant, le simt complet străine și îmi provoacă o mare anxietate.", type: "intruziv" }
+                        ]
+                    },
+                    {
+                        text: "Simți nevoia să repeți anumite acțiuni (verificări, spălat pe mâini, ordonare) pentru a reduce frica de o catastrofă (compulsii)?",
+                        options: [
+                            { text: "Verific normal lucrurile, fără ca asta să îmi consume timp sau energie.", type: "echilibru" },
+                            { text: "Simt nevoia să verific de mai multe ori decât este necesar pentru a mă liniști.", type: "compulsii" },
+                            { text: "Dacă nu execut aceste ritualuri exact cum trebuie, simt o panică de necontrolat.", type: "compulsii" }
+                        ]
+                    },
+                    {
+                        text: "Ce faci atunci când trebuie să te confrunți cu situații, spații sau obiecte care îți provoacă o teamă intensă?",
+                        options: [
+                            { text: "Mă confrunt cu ele, chiar dacă resimt un disconfort trecător.", type: "echilibru" },
+                            { text: "Încerc pe cât posibil să le evit, modificându-mi uneori planurile din cauza asta.", type: "evitare" },
+                            { text: "Le evit cu orice preț, deoarece ideea de a mă confrunta cu ele îmi provoacă atacuri de panică.", type: "evitare" }
+                        ]
+                    }
+                ],
+                feedbacks: {
+                    intruziv: {
+                        title: "Prezența gândurilor intruzive anxioase",
+                        desc: "Gândurile intruzive sunt mecanisme prin care mintea anxioasă încearcă să găsească certitudine în situații ambigue. Cu cât încerci mai mult să le blochezi, cu atât ele revin cu o intensitate mai mare.",
+                        tip: "Recomandare clinică: În psihoterapie folosim protocoale moderne de Expunere și Prevenire a Răspunsului (ERP) și tehnici ACT pentru a reduce impactul acestor gânduri asupra vieții tale."
+                    },
+                    compulsii: {
+                        title: "Tipare repetitive de control (Compulsii/Verificări)",
+                        desc: "Compulsiile reprezintă strategii temporare de reducere a anxietății intense. Deși oferă o liniște de scurtă durată, ele validează și accentuează frica pe termen lung.",
+                        tip: "Recomandare clinică: Lucrăm în cabinet pentru a întrerupe cercul vizios obsesie-compulsie, crescând gradual toleranța ta la incertitudine."
+                    },
+                    evitare: {
+                        title: "Comportament de evitare bazat pe fobii specifice",
+                        desc: "Evitarea este capcana principală a fobiilor și anxietății. De fiecare dată când eviți o situație temută, creierul tău învață că ești în siguranță doar dacă fugi, perpetuând frica.",
+                        tip: "Recomandare clinică: Prin tehnici de desensibilizare sistematică și expunere ghidată în ritmul tău, te ajut să îți recapeți libertatea de mișcare și acțiune."
+                    },
+                    echilibru: {
+                        title: "Gestionare optimă a anxietății specifice",
+                        desc: "Nivelul tău de toleranță la incertitudine și capacitatea de confruntare indică un bun control adaptativ în fața fricilor specifice.",
+                        tip: "Recomandare clinică: Continuarea expunerilor voluntare la factori de disconfort minor este cea mai bună modalitate de a menține această flexibilitate."
+                    }
+                }
+            },
+            dezvoltare_stima: {
+                label: "Dezvoltare Personală",
+                questions: [
+                    {
+                        text: "Cum te raportezi la amânarea sarcinilor importante (procrastinare)?",
+                        options: [
+                            { text: "Amânările mele sunt excepții, de regulă mă organizez bine.", type: "echilibru" },
+                            { text: "Amân frecvent sarcinile complexe din cauza fricii că nu vor ieși perfect sau a lipsei de chef.", type: "procrastinare" },
+                            { text: "Mă simt complet blocat(ă) în procrastinare, ceea ce îmi provoacă vinovăție și stres imens.", type: "procrastinare" }
+                        ]
+                    },
+                    {
+                        text: "Cât de des te confrunți cu sentimentul că nu ești suficient de bun(ă) sau că ești un impostor (stima de sine)?",
+                        options: [
+                            { text: "Mă apreciez corect, îmi cunosc calitățile și accept imperfecțiunile.", type: "echilibru" },
+                            { text: "Sunt foarte critic(ă) cu mine și am adesea nevoie de validare din partea celorlalți.", type: "incredere" },
+                            { text: "Frica de eșec și lipsa de încredere mă împiedică să îmi asum provocări noi.", type: "incredere" }
+                        ]
+                    },
+                    {
+                        text: "Cum resimți implicarea ta profesională în raport cu viața personală?",
+                        options: [
+                            { text: "Mențin un echilibru bun, știu când să mă opresc din muncă.", type: "echilibru" },
+                            { text: "Mă simt epuizat(ă), muncesc peste program și simt că îmi pierd valorile proprii (burnout).", type: "burnout" },
+                            { text: "Sunt complet golit(ă) de pasiune, detașat(ă) cinic de munca mea și extrem de obosit(ă).", type: "burnout" }
+                        ]
+                    }
+                ],
+                feedbacks: {
+                    procrastinare: {
+                        title: "Procrastinare bazată pe evitarea emoțională",
+                        desc: "Procrastinarea nu este o problemă de management al timpului, ci o strategie automată de reglare a emoțiilor dificile (anxietate, perfecționism, teama de eșec) asociate cu o sarcină.",
+                        tip: "Recomandare clinică: În cabinet, abordăm procrastinarea identificând barierele emoționale și construind un sistem de toleranță la frustrare și perfecționism."
+                    },
+                    incredere: {
+                        title: "Stimă de sine fragilă și autocritică accentuată",
+                        desc: "Evaluarea sugerează o stimă de sine condiționată puternic de performanțe exterioare și o voce critică internă activă, care îți sabotează potențialul și inițiativa.",
+                        tip: "Recomandare clinică: Lucrăm pe cultivarea compasiunii de sine, restructurarea convingerilor limitative și definirea valorilor tale autentice, nu a celor impuse de ceilalți."
+                    },
+                    burnout: {
+                        title: "Epuizare profesională severă (Sindromul Burnout)",
+                        desc: "Te afli într-o zonă de risc sau de manifestare activă a burnout-ului. Aceasta apare atunci când limitele personale au fost ignorate sistematic în favoarea performanței sau din cauza presiunii.",
+                        tip: "Recomandare clinică: Recuperarea din burnout necesită o reevaluare profundă a dinamicii de lucru, gestionarea stresului cronic și restabilirea echilibrului bazat pe valori personale solide."
+                    },
+                    echilibru: {
+                        title: "Autocunoaștere activă și echilibru",
+                        desc: "Starea ta actuală reflectă o bună integrare a încrederii în sine, abilități de organizare adaptate și o gestionare sănătoasă a granițelor dintre muncă și viața personală.",
+                        tip: "Recomandare clinică: Continuă să îți monitorizezi obiectivele și să acționezi în acord cu valorile tale fundamentale."
+                    }
+                }
+            },
+            consiliere_relationala: {
+                label: "Consiliere Relațională și Adolescenți",
+                questions: [
+                    {
+                        text: "Atunci când apar conflicte sau momente de tensiune în relația de cuplu, cum decurge comunicarea?",
+                        options: [
+                            { text: "Discutăm constructiv, chiar dacă apar diferențe de opinie.", type: "echilibru" },
+                            { text: "Discuțiile escaladează rapid în reproșuri, atacuri la persoană sau tăceri prelungite.", type: "cuplu" },
+                            { text: "Simt o deconectare profundă, ca și cum am fi doar doi colegi de apartament.", type: "cuplu" }
+                        ]
+                    },
+                    {
+                        text: "În cazul în care ești adolescent (sau părinte de adolescent), cum se resimt provocările legate de grupul de prieteni și independență?",
+                        options: [
+                            { text: "Relațiile sunt bune, există suport reciproc și limite rezonabile.", type: "echilibru" },
+                            { text: "Există o presiune imensă de conformare, teamă de excludere sau neînțelegeri majore în familie.", type: "adolescenti" },
+                            { text: "Se manifestă o izolare pronunțată, refuz de comunicare și ostilitate constantă.", type: "adolescenti" }
+                        ]
+                    },
+                    {
+                        text: "Cum gestionați momentele de reconectare emoțională după o perioadă lungă de distanțare?",
+                        options: [
+                            { text: "Găsim relativ ușor drumul înapoi unul spre celălalt.", type: "echilibru" },
+                            { text: "Rămân resentimente neexprimate care blochează apropierea autentică.", type: "cuplu" },
+                            { text: "Fiecare încearcă să își rezolve stările individual, fără a apela la partener/familie.", type: "cuplu" }
+                        ]
+                    }
+                ],
+                feedbacks: {
+                    cuplu: {
+                        title: "Dificultăți în dinamica relațională de cuplu",
+                        desc: "Tiparele de interacțiune disfuncționale (critică, defensivă, blocare) erodează în timp sentimentul de siguranță emoțională și conexiune în cuplu.",
+                        tip: "Recomandare clinică: Consilierea psihologică de cuplu oferă un cadru neutru în care puteți descifra nevoile din spatele reacțiilor defensive și puteți reînvăța comunicarea empatică."
+                    },
+                    adolescenti: {
+                        title: "Provocări specifice dinamicii adolescenței",
+                        desc: "Adolescența este o etapă critică de definire a identității, caracterizată prin separarea de părinți și importanța majoră a grupului de egali. Conflictele intense reprezintă adesea strigăte de ajutor sau de autonomie prost înțelese.",
+                        tip: "Recomandare clinică: Lucrul cu adolescenții și ghidajul parental ajută la construirea unor punți de comunicare bazate pe respect, negocierea limitelor și validare reciprocă."
+                    },
+                    echilibru: {
+                        title: "Dinamici relaționale adaptative",
+                        desc: "Tiparele actuale indică abilități bune de comunicare, recunoașterea nevoilor emoționale ale celorlalți și un grad sănătos de securitate în atașament.",
+                        tip: "Recomandare clinică: Menținerea spațiilor sigure pentru conversații vulnerabile este secretul succesului relațional pe termen lung."
+                    }
+                }
+            }
+        };
+
+        // Gestiune stare aplicație
+        let selectedDomeniu = null;
+        let currentStep = 0;
+        let selectedAnswers = [];
+        let scores = {};
+
+        // Pornire test pe un domeniu specific
+        function startDomeniu(domeniuKey) {
+            selectedDomeniu = domeniuKey;
+            currentStep = 0;
+            selectedAnswers = [];
+            scores = {};
+
+            document.getElementById('screen-intro').classList.add('hidden');
+            document.getElementById('screen-quiz').classList.remove('hidden');
+
+            const domeniuData = databaseDomenii[selectedDomeniu];
+            document.getElementById('badge-domain').innerText = domeniuData.label;
+
+            showQuestion();
+        }
+
+        // Afișare întrebare curentă
+        function showQuestion() {
+            const domeniuData = databaseDomenii[selectedDomeniu];
+            const qData = domeniuData.questions[currentStep];
+
+            document.getElementById('quiz-question').innerText = qData.text;
+
+            // Progres bar
+            const totalQuestions = domeniuData.questions.length;
+            const progressPercent = ((currentStep) / totalQuestions) * 100;
+            document.getElementById('progress-bar').style.width = `${progressPercent}%`;
+            document.getElementById('progress-text').innerText = `Întrebarea ${currentStep + 1} din ${totalQuestions}`;
+
+            // Redare opțiuni sub formă de carduri interactive selectabile
+            const container = document.getElementById('quiz-options');
+            container.innerHTML = '';
+
+            qData.options.forEach((opt, idx) => {
+                const isSelected = selectedAnswers[currentStep] === idx;
+
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left p-4 rounded-xl border transition-all duration-150 font-medium text-sm focus:outline-none flex items-start space-x-3 ${
+                    isSelected
+                    ? 'border-blue-600 bg-blue-50/60 text-blue-900 font-semibold ring-1 ring-blue-600'
+                    : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50/50 text-slate-700'
+                }`;
+
+                // Radio-button simulat
+                const radioCircle = document.createElement('div');
+                radioCircle.className = `w-4 h-4 rounded-full border flex-shrink-0 mt-0.5 flex items-center justify-center ${
+                    isSelected ? 'border-blue-600 bg-blue-600' : 'border-slate-300 bg-white'
+                }`;
+                if (isSelected) {
+                    radioCircle.innerHTML = '<div class="w-1.5 h-1.5 rounded-full bg-white"></div>';
+                }
+
+                const labelSpan = document.createElement('span');
+                labelSpan.innerText = opt.text;
+
+                btn.appendChild(radioCircle);
+                btn.appendChild(labelSpan);
+
+                btn.onclick = () => selectOption(idx);
+                container.appendChild(btn);
+            });
+
+            updateNavigationButtonState();
+        }
+
+        function selectOption(index) {
+            selectedAnswers[currentStep] = index;
+            showQuestion();
+        }
+
+        function updateNavigationButtonState() {
+            const btnNext = document.getElementById('btn-next');
+            const hasAnswer = selectedAnswers[currentStep] !== undefined;
+            const domeniuData = databaseDomenii[selectedDomeniu];
+
+            if (hasAnswer) {
+                btnNext.disabled = false;
+                btnNext.innerText = (currentStep === domeniuData.questions.length - 1) ? "Finalizează evaluarea" : "Continuă";
+                btnNext.className = "flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition shadow-md shadow-blue-600/10 cursor-pointer text-sm text-center";
+            } else {
+                btnNext.disabled = true;
+                btnNext.innerText = "Continuă";
+                btnNext.className = "flex-1 bg-slate-100 text-slate-400 font-semibold py-3 rounded-xl transition cursor-not-allowed text-sm text-center";
+            }
+        }
+
+        function nextQuestion() {
+            const domeniuData = databaseDomenii[selectedDomeniu];
+            if (selectedAnswers[currentStep] === undefined) return;
+
+            if (currentStep < domeniuData.questions.length - 1) {
+                currentStep++;
+                showQuestion();
+            } else {
+                generateAndShowResults();
+            }
+        }
+
+        // Generare Rezultate
+        function generateAndShowResults() {
+            const domeniuData = databaseDomenii[selectedDomeniu];
+            
+            // Calculare scor
+            domeniuData.questions.forEach((q, qIdx) => {
+                const ansIdx = selectedAnswers[qIdx];
+                const type = q.options[ansIdx].type;
+                scores[type] = (scores[type] || 0) + 1;
+            });
+
+            // Determină tipul dominant
+            let dominantType = "echilibru";
+            let maxScore = -1;
+
+            for (let type in scores) {
+                if (scores[type] > maxScore) {
+                    maxScore = scores[type];
+                    dominantType = type;
+                }
+            }
+
+            // Regula de prioritizare preventivă: dacă avem scoruri egale, selectăm componenta clinică pentru suport preventiv
+            if (maxScore === 1 && scores['echilibru'] === 1) {
+                for (let type in scores) {
+                    if (type !== 'echilibru' && scores[type] === 1) {
+                        dominantType = type;
+                        break;
+                    }
+                }
+            }
+
+            const feedbackData = domeniuData.feedbacks[dominantType] || domeniuData.feedbacks['echilibru'];
+
+            document.getElementById('screen-quiz').classList.add('hidden');
+            document.getElementById('screen-results').classList.remove('hidden');
+
+            const container = document.getElementById('result-feedback');
+            container.innerHTML = `
+                <div class="p-5 bg-slate-50 border border-slate-100 rounded-2xl space-y-2">
+                    <p class="font-bold text-slate-950 text-base flex items-center">
+                        <span class="w-2.5 h-2.5 rounded-full bg-blue-500 mr-2"></span>
+                        ${feedbackData.title}
+                    </p>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">${feedbackData.desc}</p>
+                </div>
+                <div class="p-4 bg-blue-50/60 border border-blue-100/70 rounded-2xl">
+                    <p class="text-xs text-blue-900 leading-relaxed font-semibold">${feedbackData.tip}</p>
+                </div>
+            `;
+        }
+
+        function goBackToIntro() {
+            document.getElementById('screen-quiz').classList.add('hidden');
+            document.getElementById('screen-intro').classList.remove('hidden');
+        }
+
+        function resetToHome() {
+            selectedDomeniu = null;
+            currentStep = 0;
+            selectedAnswers = [];
+            scores = {};
+            document.getElementById('screen-results').classList.add('hidden');
+            document.getElementById('screen-intro').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
